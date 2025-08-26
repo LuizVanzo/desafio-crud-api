@@ -9,7 +9,7 @@ class Local extends Model
     protected $table = 'local';
 
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
         'name',
         'slug',

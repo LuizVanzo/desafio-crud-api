@@ -8,7 +8,7 @@ Route::post('login', [AuthController::class, 'login']);
 
 Route::middleware('auth:api')->post('logout', [AuthController::class, 'logout']);
 
-// LOCAL (protegidas por autenticação)
+// LOCAL 
 Route::middleware('auth:api')->group(function () {
 	Route::get('local', [\App\Http\Controllers\API\LocalController::class, 'index']); 
 	Route::post('local', [\App\Http\Controllers\API\LocalController::class, 'store']); 

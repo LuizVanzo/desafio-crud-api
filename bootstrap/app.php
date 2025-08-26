@@ -37,7 +37,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 if ($e instanceof \Illuminate\Auth\AuthenticationException) {
                     return response()->json([
                         'success' => false,
-                        'message' => 'Unauthorized.'
+                        'message' => 'Unauthorized.' 
                     ], 401);
                 }
 
