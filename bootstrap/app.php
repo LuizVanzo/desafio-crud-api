@@ -27,18 +27,25 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (Throwable $e, $request) {
             if ($request->is('api/*')) {
+                if ($e instanceof \Illuminate\Auth\AuthenticationException) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Token de acesso ausente ou inválido.'
+                    ], 401);
+                }
+
+                if (str_contains($e->getMessage(), 'Route [login] not defined')) {
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'Token de acesso ausente ou inválido.'
+                    ], 401);
+                }
+
                 if ($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
                     return response()->json([
                         'success' => false,
                         'message' => 'Not Found.'
                     ], 404);
-                }
-
-                if ($e instanceof \Illuminate\Auth\AuthenticationException) {
-                    return response()->json([
-                        'success' => false,
-                        'message' => 'Unauthorized.' 
-                    ], 401);
                 }
 
                 return response()->json([

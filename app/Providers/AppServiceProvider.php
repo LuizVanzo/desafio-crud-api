@@ -21,12 +21,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->register();
+        //$this->register();
 
-        //Passport::loadKeysFrom(__DIR__.'/../secrets/oauth');
-
-        Passport::tokensExpireIn(CarbonInterval::days(1));
-        Passport::refreshTokensExpireIn(CarbonInterval::days(30));
-        Passport::personalAccessTokensExpireIn(CarbonInterval::months(6));
+        Passport::tokensExpireIn(CarbonInterval::minutes(1));
+        Passport::refreshTokensExpireIn(CarbonInterval::minutes(1));
+        Passport::personalAccessTokensExpireIn(CarbonInterval::minutes(1));
     }
 }
