@@ -51,6 +51,9 @@ app/
 └── Providers/
     └── AppServiceProvider.php  # Configurações do Passport para expiração do token
 
+routes/
+├──api.php # rotas
+
 bootstrap/
 ├──app.php # rotina para tratar rotas inexistentes
 
