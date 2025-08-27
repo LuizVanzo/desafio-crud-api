@@ -4,14 +4,14 @@ namespace App\Http\Controllers\API;
 
 /**
  * @OA\Info(
- *     title="Desafio CRUD API",
+ *     title="Challenge CRUD API",
  *     version="1.0.0",
- *     description="API de autenticação e CRUD de locais."
+ *     description="Authentication and Location CRUD API."
  * )
  *
  * @OA\Tag(
  *     name="Auth",
- *     description="Endpoints de autenticação"
+ *     description="Authentication endpoints"
  * )
  */
 
@@ -29,7 +29,7 @@ class AuthController extends Controller
      * @OA\Post(
      *     path="/api/register",
      *     tags={"Auth"},
-     *     summary="Registrar novo usuário",
+     *     summary="Register new user",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -42,11 +42,11 @@ class AuthController extends Controller
      *     ),
      *     @OA\Response(
      *         response=201,
-     *         description="Usuário registrado com sucesso"
+     *         description="User registered successfully"
      *     ),
      *     @OA\Response(
      *         response=422,
-     *         description="Dados inválidos"
+     *         description="Invalid data"
      *     )
      * )
      */
@@ -88,7 +88,7 @@ class AuthController extends Controller
      * @OA\Post(
      *     path="/api/login",
      *     tags={"Auth"},
-     *     summary="Login do usuário",
+     *     summary="User login",
      *     @OA\RequestBody(
      *         required=true,
      *         @OA\JsonContent(
@@ -99,11 +99,11 @@ class AuthController extends Controller
      *     ),
      *     @OA\Response(
      *         response=200,
-     *         description="Login realizado com sucesso"
+     *         description="Login successful"
      *     ),
      *     @OA\Response(
      *         response=401,
-     *         description="Credenciais inválidas"
+     *         description="Invalid credentials"
      *     )
      * )
      */
@@ -139,11 +139,11 @@ class AuthController extends Controller
      * @OA\Post(
      *     path="/api/logout",
      *     tags={"Auth"},
-     *     summary="Logout do usuário",
+     *     summary="User logout",
      *     security={{"bearerAuth":{}}},
      *     @OA\Response(
      *         response=200,
-     *         description="Logout realizado com sucesso"
+     *         description="Logout successful"
      *     )
      * )
      */
